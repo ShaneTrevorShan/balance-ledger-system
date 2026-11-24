@@ -1,0 +1,151 @@
+body {
+  background: lightyellow;
+  margin: 0;
+  padding: 20px;
+  font-family: 'FangSong';
+}
+
+/* main panel (renamed from .container, which Bootstrap also uses) */
+.ledger-panel {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #f0e68c;
+  border-radius: 8px;
+}
+
+/* header image (was a global img rule, which would also hit the coins) */
+.header-img {
+  width: 700px;
+  max-width: 100%;
+  height: 300px;
+  object-fit: cover; /* crops instead of stretching the picture */
+}
+
+#greeting {
+  color: #555;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: 'Comic Sans MS', sans-serif;
+  font-size: 16pt;
+}
+
+h1 {
+  color: #2c3e50;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: 'Bauhaus 93', sans-serif;
+  font-size: 40pt;
+  font-weight: bolder;
+}
+
+h1:hover {
+  color: gold;
+  font-size: 50pt;
+}
+
+.tagline {
+  margin-top: 10px;
+  font-family: 'Comic Sans MS', sans-serif;
+  font-size: 16pt;
+  color: #555;
+}
+
+label {
+  font-size: 14pt;
+  color: #333;
+}
+
+.result {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 15px;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.table-container {
+  margin-top: 20px;
+}
+
+/* Bootstrap paints every table cell with --bs-table-bg (white by default),
+   which would hide the yellow table and the red/green remaining row.
+   Making it transparent lets your colours show through. */
+.table-ledger {
+  --bs-table-bg: transparent;
+  width: 100%;
+  background: #fcf6b5;
+}
+
+.table-ledger th,
+.table-ledger td {
+  padding: 10px 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  font-size: 18px;
+}
+
+.table-ledger th {
+  background: #faed5d;
+  color: #2c3e50;
+  font-size: 20px;
+}
+
+/* currency label + input box inside the Amount column */
+.table-ledger .input-group {
+  min-width: 170px;
+}
+
+.table-ledger .input-group-text {
+  background: #faed5d;
+  font-weight: bold;
+}
+
+.bar-track {
+  position: relative;
+  height: 22px;
+  min-width: 120px;
+  background-color: #e9ecef;
+  border-radius: 11px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  transition: width 0.4s ease;
+}
+
+.bar-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  line-height: 22px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
+  color: #222;
+}
+
+/*FOR FUN H1 COIN RAIN*/
+.coin-jump {
+  position: fixed;
+  width: 50px; /*adjust the size of the coin*/
+  margin: -10px 0 0 -10px; /* centers the image on its starting point */
+  pointer-events: none;
+  z-index: 999;
+}
+
+.coin-jump img {
+  display: block;
+  width: 100%;
+  height: auto;
+  animation: coin-spin 1s linear infinite;
+}
+
+@keyframes coin-spin {
+  to {
+    transform: rotateY(360deg);
+  }
+}
